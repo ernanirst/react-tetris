@@ -5,8 +5,6 @@ pipeline:
     commands:
       - npm i
       - npm run build --production
-  when:
-        event: deployment
 
   scp:
     image: appleboy/drone-scp
