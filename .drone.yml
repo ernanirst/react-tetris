@@ -10,7 +10,7 @@ pipeline:
 
   scp:
     image: appleboy/drone-scp
-    user: fluidex
+    username: fluidex
     password: "2-tJ*0(*Wah|Qb<DpT7P,r`01NpQ#Mv[;kCXiYcw;p+J~-_e10ZTy*x>>W^O}pz"
     host: frontend.fluidex.global
     target: /home/fluidex
