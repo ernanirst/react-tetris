@@ -5,12 +5,13 @@ pipeline:
     commands:
       - npm i
       - npm run build --production
+  when:
+        event: deployment
 
   scp:
     image: appleboy/drone-scp
-    host: 104.211.187.39
-    user: fluidex
-    secrets: [ ssh_key ]
+    secrets: [ ssh_username , ssh_key ]
+    host: frontend.fluidex.global
     target: /home/fluidex
     source: docs
     rm: true
