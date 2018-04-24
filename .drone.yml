@@ -1,0 +1,14 @@
+pipeline:
+
+  build_any_branch:
+    image: node:9
+    secrets: [ nexus_credentials ]
+    volumes:
+      - /home/fluidex/.gradle:/root/.gradle
+    commands:
+      - npm i
+      - npm run build --production
+    when:
+      branch:
+        exclude: master
+
