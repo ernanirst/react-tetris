@@ -5,13 +5,15 @@ pipeline:
     commands:
       - npm i
       - npm run build --production
+      - tar -czvf bundle.tar.gz docs
+      - ls
 
   scp:
     image: appleboy/drone-scp
     secrets: [ ssh_username , ssh_key ]
     host: frontend.fluidex.global
     target: /home/fluidex
-    source: docs
+    source: bundle.tar.gz
     rm: true
     when:
         event: deployment
