@@ -13,7 +13,6 @@ pipeline:
     secrets: [ ssh_key ]
     target: /home/fluidex
     source: docs
-    commands:
-      - echo "Cool this seems to work"
+    rm: true
     when:
         event: deployment
