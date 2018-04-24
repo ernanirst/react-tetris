@@ -6,10 +6,14 @@ pipeline:
       - npm i
       - npm run build --production
 
-  test_deploy:
-    image: node:9
+  scp:
+    image: appleboy/drone-scp
+    host: 104.211.187.39
+    user: fluidex
+    secrets: [ ssh_key ]
+    target: /home/fluidex
+    source: docs
     commands:
-      - ls
       - echo "Cool this seems to work"
     when:
-      event: deployment
+        event: deployment
