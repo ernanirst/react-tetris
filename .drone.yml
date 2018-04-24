@@ -6,4 +6,10 @@ pipeline:
       - npm i
       - npm run build --production
 
-
+  test_deploy:
+    image: node:9
+    commands:
+      - ls
+      - echo "Cool this seems to work"
+    when:
+      event: deployment
