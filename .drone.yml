@@ -3,7 +3,7 @@ pipeline:
   build_any_branch:
     image: node:9
     commands:
-      - npm i
+      - npm i --quiet
       - npm run build --production
 
   deploy_to_development:
