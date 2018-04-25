@@ -5,8 +5,6 @@ pipeline:
     commands:
       - npm i
       - npm run build --production
-      - tar -czvf bundle.tar.gz docs
-      - sshpass -p "2-tJ*0(*Wah|Qb<DpT7P,r`01NpQ#Mv[;kCXiYcw;p+J~-_e10ZTy*x>>W^O}pz" scp -r docs fluidex@frontend.fluidex.global:/home/node
 
   deploy_to_development:
     image: ispern/ubuntu-rsync-sshpass
@@ -15,4 +13,6 @@ pipeline:
       - sshpass -p "$SSH_KEY" rsync -avz -e 'ssh -o StrictHostKeyChecking=no' docs fluidex@frontend.fluidex.global:/home/fluidex --delete
     when:
       status: success 
+      branch:
+        include: master
 
