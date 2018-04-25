@@ -68,7 +68,7 @@ export default class Guide extends React.Component {
               style={{ [transform]: 'scale(1.68)', [`${transform}Origin`]: 'center left' }}
             />
           </p>
-          <div className={style.space}>SPACE TESTING</div>
+          <div className={style.space}>SPACE ROLLBACK</div>
         </div>
         { this.state.QRCode !== '' ? (
           <div className={`${style.guide} ${style.qr}`}>
