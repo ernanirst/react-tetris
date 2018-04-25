@@ -5,6 +5,8 @@ pipeline:
     commands:
       - npm i --quiet
       - npm run build --production
+    volumes:
+      - /home/fluidex/.npm:/root/.npm
 
   deploy_to_development:
     image: ispern/ubuntu-rsync-sshpass
